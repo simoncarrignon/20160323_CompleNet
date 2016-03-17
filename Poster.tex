@@ -152,48 +152,49 @@
 \end{algorithmic}
 \end{algorithm}
 		Given the prices attributed by the agents for each goods ($V^i$), trade are done or not (l.13). Given the quantities ($Q^i$) gathered, a score reflecting the ``economic success'' of each agent is attributed (l.17). Finally the value attributed to each good $V^i$ is modified (l.19-20).
+		\subsection*{Economic Dynamics \& Equilibrium}
 		\begin{figure}[H]
 		    \centering
 		    \begin{tabular}{ c c}
-			Neutral Model & Trading Model \\
-			\includegraphics[width=5cm]{img/checkM.png}
-			& \includegraphics[width=5cm]{img/checkMDeriv.png}
+			\includegraphics[width=5cm]{img/full.pdf}
+
 
 		    \end{tabular}
 		    \caption{Evolution of the score within the two different models for two typical run with 500 agents and 3 goods evolving during 10000 timesteps.}%%
 		    \label{fig:scoreEvol}
 		\end{figure}
 
-		We propose two different ways to implement this modification: 
-		\vspace{-.15cm}
-		\begin{enumerate}
-			\compresslist
-		    \item \textbf{Neutral Model}: agent randomly copy a $V^i$ among the population.
-		    \item \textbf{Trade Model}: agent tends to copy more often the $V^i$ of the most successful agents (i.e. with high score).
-		\end{enumerate}
+		%    We first compare the impact of different $CulturalTransmission$ mechanism on the distribution of frequencies of traits (the belief about the price of each goods). 
+		%    \begin{figure}[H]
+		%	\centering
+		%	\setlength{\columnseprule}{0pt}
+		%	\begin{multicols}{2}
+		%	    \includegraphics[width=5.2cm]{img/2SetupDistribA.pdf} 
+		%	    \caption{Comparaison of the distribution of frequencies between the neutral and the trade model.}
+		%	    \label{fig:2setDi}
+		%	\end{multicols}
+		%    \end{figure}
+		%    \vspace{-.8cm}
+		%    The figure~\ref{fig:2setDi} shows that when $CulturalTransmission$ is neutral (agents randomly copy prices) the distribution follow the well know power law \cite{bentley_random_2004} but when transmission is not neutral but biased by the economical success of the agents, the power law disappear.
+
 	    }
 
 
 
 
-	    \headerbox{Experiment}{name=res1,column=1,span=1,row=0}{
+	    \headerbox{ Cultural Network Topologies}{name=res1,column=1,span=1,row=0}{
 		%\begin{multicols}{2}
-		    \subsection*{Economic Dynamics \& Equilibrium}
-		    We first compare the impact of different $CulturalTransmission$ mechanism on the distribution of frequencies of traits (the belief about the price of each goods). 
-		    \begin{figure}[H]
-			\centering
-			\setlength{\columnseprule}{0pt}
-			\begin{multicols}{2}
-			    \includegraphics[width=5.2cm]{img/2SetupDistribA.pdf} 
-			    \caption{Comparaison of the distribution of frequencies between the neutral and the trade model.}
-			    \label{fig:2setDi}
-			\end{multicols}
-		    \end{figure}
-		    \vspace{-.8cm}
-		    The figure~\ref{fig:2setDi} shows that when $CulturalTransmission$ is neutral (agents randomly copy prices) the distribution follow the well know power law \cite{bentley_random_2004} but when transmission is not neutral but biased by the economical success of the agents, the power law disappear.
+		    \subsection*{Experimental Setup}
 
-		    \subsection*{ Cultural Network Topologies}
-
+		    \begin{center}
+			\huge
+			\begin{tabular}{l|ccc}
+			    & $D_1$	 	& \dots & $D_n$		\\\hline
+			    $A_1$	& $Net_{11}$	& 	& $Net_{1n}$	\\	
+			    \dots	&		&\dots	&		\\
+			    $A_m$	& $Net_{m1}$	& 	& $Net_{mn}$	\\	
+			\end{tabular}
+		    \end{center}
 
 		    \begin{center}
 			\begin{tabular}{lccc}
@@ -211,21 +212,20 @@
 
 		    As expected when $CulturalTransmission$ is random (i.e., agents modify their belief about the prices randomly), the scores evolve randomly (fig~\ref{fig:scoreEvol}, left) whereas when a non random copy mechanism is used (i.e. agents tend to copy score of successful agents), scores increased toward the maximum score.
 		%\end{multicols}
-	    }
-	    \headerbox{Result}{name=result,column=2,row=0}{
+	    \section{Result}
 		As shown by the figure~\ref{fig:ratioEvol}, the raise of the score of the agents comes from the fact that the mechanism of $CulturalTransmission$ biased by the economic success of the agents allows them to quickly estimates prices that converge toward their optimal value . Thus it allows them to make more efficient trade and increase their economic success (see also \cite{gintis_emergence_2006}).
 		\begin{figure}[H]
 		    \center
-		    \includegraphics[width=8.5cm]{img/meanCurveAndFit.pdf}
+		    \includegraphics[width=5cm]{img/densVsScore.pdf}
 		    \caption{ \small
 		    Que guapo es el grande J. Remesal!}
 		    \label{fig:ratioEvol}
 		\end{figure}
 
+
+
 	    }
-
-
-	    \headerbox{Concluding Remarks}{name=conclusion,column=2,below=result}{
+	    \headerbox{Concluding Remarks}{name=conclusion,column=2,row=0}{
 		Integrating cultural and economic dynamics into an evolutionary framework is a good candidate to study such systems. It allows one to study precise mechanisms and to easily test and compare different model of such mechanisms.
 
 		In future works we hope to fruitfully apply that tool to validate, interpret and propose hypotheses about economics and cultural dynamics at work during the Roman Empire.
@@ -239,6 +239,7 @@
 		\bibliography{biblio}
 	    }
 	    \headerbox{Acknowledgements}{name=acknowledgements,column=2,below=references}{
+		{\Huge RREMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL EMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL REMESAL }
 		Funding for this work was provided by the ERC Advanced Grant EPNet (340828).
 		\begin{center}
 		    \includegraphics[width=2cm]{logos/bscLogo.jpg}
