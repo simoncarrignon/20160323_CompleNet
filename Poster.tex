@@ -120,6 +120,37 @@
 	    \headerbox{Framework}{name=ud,column=0,below=introduction}{
 
 		To explore the co-evolution between trade and cultural change we developed a framework where the different agents produce and trade goods. The model is composed of a population $Pop$ of $m$ agents. Each agent $i$ is defined by 2 vectors $Q^i$ and $V^i$ of size $n$. $Q^i$ store the quantity of each good owned by $i$ and $V^i$ represents the price estimated by $i$ for each of the $n$ good.
+\begin{algorithm}[H]
+\caption{Model}
+\label{algo:complete}
+	\begin{algorithmic}[1]
+	\scriptsize
+	\State INITIALIZATION: 
+		\For{$i \in \#Pop$} \Comment{Initialize the agent with no goods and a random value vector}
+				\State $Q^i = (0, \cdots, 0)$
+				\State $V^i = (v^i_0, \cdots, v^i_n)$ \Comment{The values of $v^i_j$ are selected randomly}
+		\EndFor
+
+	\State SIMULATION:
+		\Loop{$~step \in TimeSteps$}
+			\For{$i \in Pop$}
+				\State $Production(Q^i)$
+			\EndFor
+			\For{$i \in Pop$}
+				\For{$j \in Pop$}
+					\State $TradeProcess(V^i,Q^i,V^j,Q^j)$
+				\EndFor		
+			\EndFor
+			\For{$i \in Pop$}
+				\State $ConsumeGoods(Q^i)$ \Comment{All goods are consumed}
+				\If{$ (step \mod CulturalStep) = 0$}	
+					\State $CulturalTransmission(V)$
+					\State $Innovation(V^i)$
+				\EndIf
+			\EndFor
+		\EndLoop
+\end{algorithmic}
+\end{algorithm}
 		Given the prices attributed by the agents for each goods ($V^i$), trade are done or not (l.13). Given the quantities ($Q^i$) gathered, a score reflecting the ``economic success'' of each agent is attributed (l.17). Finally the value attributed to each good $V^i$ is modified (l.19-20).
 		\begin{figure}[H]
 		    \centering
@@ -164,14 +195,18 @@
 		    \subsection*{ Cultural Network Topologies}
 
 
+		    \begin{center}
+			\begin{tabular}{lccc}
+			    &$D=0.02$ & $D=0.04$\\
+			    $A\approx17$&
+			    \includegraphics[width=2.5cm]{img/g02.pdf}&
+			    \includegraphics[width=2.5cm]{img/g00.pdf}\\
+			    $A\approx4$&
+			    \includegraphics[width=2.5cm]{img/g42.pdf}&
+			    \includegraphics[width=2.5cm]{img/g40.pdf}\\
+			\end{tabular}
 
-		    \begin{tabular}{ c c}
-			& \\
-			\includegraphics[width=5cm]{img/g02.pdf}
-			s \includegraphics[width=5cm]{img/g42.pdf}
-
-		    \end{tabular}
-
+		    \end{center}
 
 
 		    As expected when $CulturalTransmission$ is random (i.e., agents modify their belief about the prices randomly), the scores evolve randomly (fig~\ref{fig:scoreEvol}, left) whereas when a non random copy mechanism is used (i.e. agents tend to copy score of successful agents), scores increased toward the maximum score.
